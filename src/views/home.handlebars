@@ -1,0 +1,36 @@
+<h1 style="margin-top: 25px" class="title__productspage">NUESTROS PRODUCTOS</h1>
+<div class="row product justify-content-evenly containerFlex">
+    {{#each productsVisualice}}
+    <div class="containerCard containerProd itemFlex" style="width: 14rem; margin-top: 5px;">
+        <div style="margin-top: 10px; width:200px; height:200px;">
+            <div style="text-align:center;">
+            <img src={{this.thumbnail}} alt="Product picure{{this.id}}"  width="140" height="179">
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">{{this.title}}</h3>
+            <p class="card-text">{{this.description}}</p>
+            <p class="card-text">$ {{this.price}}</p>
+        </div>
+    </div>
+    {{/each}}
+</div>
+  <div style="display: flex; justify-content: space-between; padding: 30px">
+      <div> ORDENAR POR PRECIO
+        <a href="?page={{paginationInfo.page}}&limit={{paginationInfo.limit}}&sort=asc">⬆️</a>
+        <a href="?page={{paginationInfo.page}}&limit={{paginationInfo.limit}}&sort=desc">⬇️</a>
+      </div>
+  </div>
+<div style="display: flex; justify-content: center; margin-top: 30px">
+  <div class="pagination">
+    {{#if paginationInfo.hasPrevPage}}
+    <a href="?page={{paginationInfo.prevPage}}&limit={{paginationInfo.limit}}&sort={{sort}}"> Anterior</a>
+    {{/if}}
+    <span style="margin-left: 20px; margin-right: 20px">Page {{paginationInfo.page}} of {{paginationInfo.totalPages}}</span>
+    {{#if paginationInfo.hasNextPage}}
+    <a href="?page={{paginationInfo.nextPage}}&limit={{paginationInfo.limit}}&sort={{sort}}">Siguiente ➡️</a>
+    {{/if}}
+  </div>
+</div>
+
+
